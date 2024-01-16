@@ -1445,6 +1445,7 @@ rotatestack(const Arg *arg)
 		focus(f);
 		restack(selmon);
 	}
+    focus(c);
 }
 
 void
