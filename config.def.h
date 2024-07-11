@@ -63,6 +63,11 @@ static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *braveCmd[] = { "brave", "--window-name=scratchpad", "--window-size=\"120,34\"", NULL };
+static const char *screenshotCmd[] = {"maim --noopengl --select --format=png /dev/stdout | xclip -selection clipboard -t image/png", NULL};
+
+static void runCmd(const char* cmdStr) {
+    system(cmdStr);
+}
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -88,6 +93,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_c,      runCmd,         {.v = &screenshotCmd[0] } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
