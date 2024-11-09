@@ -63,8 +63,10 @@ static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *braveCmd[] = { "brave", "--window-name=scratchpad", "--window-size=\"120,34\"", NULL };
-// NOTE: screenshot is a custom executable shell file with content: `maim --noopengl --select --format=png /dev/stdout | xclip -selection clipboard -t image/png -i`
-static const char *screenshotCmd[] = {"screenshot", NULL};
+
+// NOTE: these are custom commands
+static const char *screenshotCmd[] = {"/home/user/programs/screenshot", NULL};
+static const char *cyclemonCmd[] = {"/home/user/programs/cyclemon", NULL};
 
 static void runCmd(const char* cmdStr) {
     system(cmdStr);
@@ -94,7 +96,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_c,      runCmd,         {.v = screenshotCmd } },
+	{ MODKEY,                       XK_c,      spawn,         {.v = screenshotCmd } },
+	{ MODKEY,                       XK_s,      spawn,         {.v = cyclemonCmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
