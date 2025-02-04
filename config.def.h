@@ -64,6 +64,10 @@ static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *braveCmd[] = { "brave", "--window-name=scratchpad", "--window-size=\"120,34\"", NULL };
 
+// to compile a lock screen image first run: 
+// `betterlockscreen -u path/to/image`
+static const char *betterlockscreen[] = { "betterlockscreen", "-l", "dimblur", "--span", NULL };
+
 // NOTE: these are custom commands
 static const char *screenshotCmd[] = {"/home/user/programs/screenshot", NULL};
 static const char *cyclemonCmd[] = {"/home/user/programs/cyclemon", NULL};
@@ -98,6 +102,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_c,      spawn,         {.v = screenshotCmd } },
 	{ MODKEY,                       XK_s,      spawn,         {.v = cyclemonCmd } },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,         {.v = betterlockscreen} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
