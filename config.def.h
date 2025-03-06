@@ -77,6 +77,7 @@ static void runCmd(const char* cmdStr) {
     system(cmdStr);
 }
 #define VOLUME_DOWN_KEY 0x1008FF11
+#define VOLUME_UP_KEY 0x1008FF13
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -116,6 +117,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     { 0,                            VOLUME_DOWN_KEY, spawn,  {.v = virtualKeyboardCmd } },
+	{ 0,                            VOLUME_UP_KEY,      spawn,          {.v = dmenucmd } },
 
 };
 
