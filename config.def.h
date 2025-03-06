@@ -63,6 +63,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *braveCmd[] = { "brave", "--window-name=scratchpad", "--window-size=\"120,34\"", NULL };
+static const char *virtualKeyboardCmd[] = { "svkbd-mobile-intl", NULL };
 
 // to compile a lock screen image first run: 
 // `betterlockscreen -u path/to/image`
@@ -113,6 +114,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+    { 0,                            0x1008FF11, togglescratch,  {.v = virtualKeyboardCmd } },
+
 };
 
 /* button definitions */
