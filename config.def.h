@@ -63,7 +63,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *braveCmd[] = { "brave", "--window-name=scratchpad", "--window-size=\"120,34\"", NULL };
-static const char *virtualKeyboardCmd[] = { "svkbd-mobile-intl", NULL };
+static const char *virtualKeyboardCmd[] = { "/home/user/programs/toggle_vkeyboard", NULL };
 
 // to compile a lock screen image first run: 
 // `betterlockscreen -u path/to/image`
